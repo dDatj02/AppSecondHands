@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">App2Hands</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_rePassword_hint">Re-Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="login_signin_hint">You have an account? Sign In</string>
+    <string name="change_password">Bạn vui lòng nhập mật khẩu cũ của bạn để tiến hành đổi mật khẩu. Nếu bạn quên mật khẩu cũ hãy sử dụng tính năng Quên mật khẩu để khôi phục lại mật khẩu</string>
+    <string name="app_version">Phiên bản: 1.0.0</string>
+    <string name="developer">Phát triển bởi: Lâm Gia Đạt và Nguyễn Tấn Phát</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
