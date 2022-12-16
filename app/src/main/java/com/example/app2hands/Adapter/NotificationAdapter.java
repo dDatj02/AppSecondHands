@@ -50,6 +50,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, NotificationDetail.class);
+                intent.putExtra(NotificationDetail.EXTRA_NOTIFICATION, notification);
                 context.startActivity(intent);
             }
         });
