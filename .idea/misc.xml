@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/bg_btn_add.xml" value="0.1755" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1725" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/ic_delete.xml" value="0.1725" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/ic_info.xml" value="0.1725" />
@@ -16,6 +17,8 @@
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/search_view_bg.xml" value="0.1725" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/shape.xml" value="0.1755" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/drawable/status_bg.xml" value="0.1725" />
+        <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_add_noti.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_add_product.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_admin.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_admin_product_censor_detail.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_admin_product_detail.xml" value="0.22146739130434784" />
@@ -23,6 +26,7 @@
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_change_password.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_notification_detail.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_product_detail.xml" value="0.264" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/activity_splash_screen.xml" value="0.22146739130434784" />
@@ -38,6 +42,7 @@
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/fragment_store_manage.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/info_app.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/message_item.xml" value="0.176" />
+        <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/noti_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/product_cart_item.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/layout/product_item.xml" value="0.8" />
         <entry key="..\:/Users/Lam Dat/AndroidStudioProjects/App2Hands/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24635416666666668" />

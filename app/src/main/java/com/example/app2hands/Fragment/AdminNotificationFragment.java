@@ -1,14 +1,28 @@
 package com.example.app2hands.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.app2hands.Adapter.MessageAdapter;
+import com.example.app2hands.Adapter.NotificationAdapter;
+import com.example.app2hands.AddNoti;
+import com.example.app2hands.Model.Message;
+import com.example.app2hands.Model.Notification;
 import com.example.app2hands.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +30,8 @@ import com.example.app2hands.R;
  * create an instance of this fragment.
  */
 public class AdminNotificationFragment extends Fragment {
+    RecyclerView rvManageNoti;
+    Button addNoti;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +78,40 @@ public class AdminNotificationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_admin_notification, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        rvManageNoti = view.findViewById(R.id.rvManageNoti);
+        ArrayList<Notification> notifications = (ArrayList<Notification>) initData();
+
+        NotificationAdapter adapter = new NotificationAdapter(notifications, getContext());
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+        rvManageNoti.setAdapter(adapter);
+        rvManageNoti.setLayoutManager(linearLayoutManager);
+
+        addNoti = view.findViewById(R.id.btnAdd);
+        addNoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AddNoti.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public List<Notification> initData(){
+        String[] title = {"Iphone 14", "Iphone 14 Pro Max"};
+        String[] description = {"Việc hiển thị text trên TextView khá là phức tạp, bao gồm các tính năng như multiple font, khoảng cách giữa các dòng, các chữ với nhau, hướng text hiển thị, line breaking, các gách nối v.vv.. TextView phải làm quá nhiều việc để tính toán và bố trí các Text được nhận như: đọc file font, tìm các ký tự hình tượng, chia các shape cho text, tính toán phần bounding và caching các text vào bộ đệm. Hơn nữa, tất cả các công việc trên đều hoạt động trên UI Thread, và nó có khả năng làm giảm hiệu năng của ứng dụng.", "Deep Việc hiển thị text trên TextView khá là phức tạp, bao gồm các tính năng như multiple font, khoảng cách giữa các dòng, các chữ với nhau, hướng text hiển thị, line breaking, các gách nối v.vv.. TextView phải làm quá nhiều việc để tính toán và bố trí các Text được nhận như: đọc file font, tìm các ký tự hình tượng, chia các shape cho text, tính toán phần bounding và caching các text vào bộ đệm. Hơn nữa, tất cả các công việc trên đều hoạt động trên UI Thread, và nó có khả năng làm giảm hiệu năng của ứng dụng."};
+        List<Notification> notificationList = new ArrayList<>();
+        for (int i=0; i<title.length;i++){
+            Notification p = new Notification(title[i], description[i]);
+            notificationList.add(p);
+        }
+        return notificationList;
     }
 }

@@ -49,7 +49,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AdminProductDetail.class);
-                intent.putExtra(ProductDetail.EXTRA_PRODUCT, product);
+                intent.putExtra(AdminProductDetail.EXTRA_PRODUCT, product);
                 context.startActivity(intent);
             }
         });

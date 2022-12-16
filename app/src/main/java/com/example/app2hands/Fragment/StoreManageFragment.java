@@ -1,21 +1,28 @@
 package com.example.app2hands.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.app2hands.AddNoti;
+import com.example.app2hands.AddProduct;
 import com.example.app2hands.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AdminNotificationFragment#newInstance} factory method to
+ * Use the {@link StoreManageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AdminNotificationFragment extends Fragment {
+public class StoreManageFragment extends Fragment {
+    Button btnAddProduct;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +33,7 @@ public class AdminNotificationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AdminNotificationFragment() {
+    public StoreManageFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +43,11 @@ public class AdminNotificationFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AdminNotification.
+     * @return A new instance of fragment StoreManageFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AdminNotificationFragment newInstance(String param1, String param2) {
-        AdminNotificationFragment fragment = new AdminNotificationFragment();
+    public static StoreManageFragment newInstance(String param1, String param2) {
+        StoreManageFragment fragment = new StoreManageFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +68,20 @@ public class AdminNotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_notification, container, false);
+        return inflater.inflate(R.layout.fragment_store_manage, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        btnAddProduct = view.findViewById(R.id.btnAddProduct);
+        btnAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AddProduct.class);
+                startActivity(intent);
+            }
+        });
     }
 }
