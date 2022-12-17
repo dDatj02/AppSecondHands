@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.example.app2hands.AppVersion;
 import com.example.app2hands.ChangePassword;
 import com.example.app2hands.R;
+import com.example.app2hands.UserNotification;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,8 +23,7 @@ import com.example.app2hands.R;
  * create an instance of this fragment.
  */
 public class PersonalFragment extends Fragment {
-    LinearLayout changePassword;
-    LinearLayout infoApp;
+    LinearLayout changePassword, infoApp, notification;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,6 +78,7 @@ public class PersonalFragment extends Fragment {
 
         changePassword = view.findViewById(R.id.changePassword);
         infoApp = view.findViewById(R.id.infoApp);
+        notification = view.findViewById(R.id.notification);
 
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +92,14 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AppVersion.class);
+                startActivity(intent);
+            }
+        });
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UserNotification.class);
                 startActivity(intent);
             }
         });
