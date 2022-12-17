@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -22,6 +23,7 @@ import java.util.List;
 
 public class AddProduct extends AppCompatActivity {
     Button btnSelectImage;
+    EditText productName, productType, productStatus, productPrice, productDescription;
     private static final int Read_Permission = 101;
     ArrayList<Uri> uri = new ArrayList<>();
 
@@ -30,7 +32,19 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
+        productName = findViewById(R.id.productName);
+        productType = findViewById(R.id.productType);
+        productStatus = findViewById(R.id.productStatus);
+        productPrice = findViewById(R.id.productPrice);
+        productDescription = findViewById(R.id.productDescription);
         btnSelectImage = findViewById(R.id.btnSelectImage);
+
+
+        String nameProduct = productName.getText().toString();
+        String typeProduct = productType.getText().toString();
+        String statusProduct = productStatus.getText().toString();
+        String priceProduct = productPrice.getText().toString();
+        String descriptionProduct = productDescription.getText().toString();
 
         if(ContextCompat.checkSelfPermission(AddProduct.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(AddProduct.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Read_Permission);

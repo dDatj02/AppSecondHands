@@ -20,6 +20,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
+            android:id="@+id/productName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -38,6 +39,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
+            android:id="@+id/productType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -56,6 +58,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
+            android:id="@+id/productStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -74,6 +77,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
+            android:id="@+id/productPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -93,6 +97,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
+            android:id="@+id/productDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
