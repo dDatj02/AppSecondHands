@@ -92,15 +92,7 @@ public class AdminManageStoreFragment extends Fragment {
     }
 
     public List<Product> initData(){
-        String[] name = {"Iphone 14", "Iphone 14 Pro Max", "Samsung Galaxy ZFlip","ZFold3", "Alienware 17", "Zenphyrus G15", "Acer Triton"};
-        String[] status = {"Còn tốt", "Cũ", "Mới", "Còn tốt", "Còn tốt", "Like new", "Còn tốt"};
-        String[] price = {"1.200.000.000đ", "900k", "700k", "200k", "700k", "100k", "600k"};
-        int[] img = {R.drawable.ic_google, R.drawable.ic_google, R.drawable.ic_google, R.drawable.ic_google, R.drawable.ic_google, R.drawable.ic_google, R.drawable.ic_google};
         List<Product> productList = new ArrayList<>();
-        for (int i=0; i<name.length;i++){
-            Product p = new Product(img[i], name[i], price[i], status[i]);
-            productList.add(p);
-        }
         return productList;
     }
 }

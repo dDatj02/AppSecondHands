@@ -40,7 +40,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = listProduct.get(position);
 
-        holder.ivImg.setImageResource(product.getImg());
+        holder.ivImg.setImageURI(product.getImg().get(0));
         holder.tvProductName.setText(product.getProductName());
         holder.tvProductPrice.setText(product.getProductPrice());
         holder.tvProductStatus.setText(product.getProductStatus());

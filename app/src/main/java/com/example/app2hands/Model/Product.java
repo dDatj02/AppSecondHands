@@ -1,26 +1,34 @@
 package com.example.app2hands.Model;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Product implements Parcelable {
-    private int img;
-    private String productName, productPrice, productStatus;
+import java.util.ArrayList;
 
-    public Product() {}
+public class Product implements Parcelable{
+    private ArrayList<Uri> img;
+    private String productName, productPrice, productStatus, productType, productDescription;
 
-    public Product(int img, String productName, String productPrice, String productStatus) {
+    public Product() {
+    }
+
+    public Product(ArrayList<Uri> img, String productName, String productPrice, String productStatus, String productType, String productDescription) {
         this.img = img;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productStatus = productStatus;
+        this.productType = productType;
+        this.productDescription = productDescription;
     }
 
     protected Product(Parcel in) {
-        img = in.readInt();
+        img = in.createTypedArrayList(Uri.CREATOR);
         productName = in.readString();
         productPrice = in.readString();
         productStatus = in.readString();
+        productType = in.readString();
+        productDescription = in.readString();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -35,11 +43,11 @@ public class Product implements Parcelable {
         }
     };
 
-    public int getImg() {
+    public ArrayList<Uri> getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(ArrayList<Uri> img) {
         this.img = img;
     }
 
@@ -67,6 +75,22 @@ public class Product implements Parcelable {
         this.productStatus = productStatus;
     }
 
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -74,9 +98,11 @@ public class Product implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(img);
+        dest.writeTypedList(img);
         dest.writeString(productName);
         dest.writeString(productPrice);
         dest.writeString(productStatus);
+        dest.writeString(productType);
+        dest.writeString(productDescription);
     }
 }
