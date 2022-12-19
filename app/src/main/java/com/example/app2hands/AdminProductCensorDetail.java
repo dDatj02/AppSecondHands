@@ -1,6 +1,8 @@
 package com.example.app2hands;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,15 +13,18 @@ import android.widget.TextView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.app2hands.Adapter.ImageProductAdapter;
+import com.example.app2hands.Adapter.MessageAdapter;
 import com.example.app2hands.Model.Product;
 
 import java.util.ArrayList;
 
 public class AdminProductCensorDetail extends AppCompatActivity {
     public static final String EXTRA_PRODUCT = "extra_product";
-    ImageSlider imageSlider;
+    RecyclerView rvImageDetailProduct;
     ImageView arrowBack;
     TextView productPrice, productName, productStatus, productType, productDescription;
+    ArrayList<Uri> listUri = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +46,16 @@ public class AdminProductCensorDetail extends AppCompatActivity {
         productStatus.setText(product.getProductStatus());
         productType.setText(product.getProductType());
         productDescription.setText(product.getProductDescription());
+        listUri = product.getImg();
 
         ///Slider
-        imageSlider = findViewById(R.id.imageDetailProduct);
-        ArrayList<SlideModel> slideModels = new ArrayList<>();
-        ArrayList<Uri> imageTest = new ArrayList<>();
+        rvImageDetailProduct = findViewById(R.id.rvImageDetailProduct);
+        ImageProductAdapter adapter = new ImageProductAdapter(listUri, this);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-
-        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
+        rvImageDetailProduct.setAdapter(adapter);
+        rvImageDetailProduct.setLayoutManager(linearLayoutManager);
 
 
         ///Back Arrow

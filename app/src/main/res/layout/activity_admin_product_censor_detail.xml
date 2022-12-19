@@ -19,15 +19,11 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/imageDetailProduct"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImageDetailProduct"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    app:iss_auto_cycle="true"
-                    app:iss_corner_radius="10"
-                    app:iss_delay="1000"
-                    app:iss_period="1000" />
+                    android:layout_height="200dp"/>
+
 
                 <ImageView
                     android:id="@+id/arrowBack"

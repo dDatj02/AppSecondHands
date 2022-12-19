@@ -1,7 +1,10 @@
 package com.example.app2hands;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,33 +13,22 @@ import android.widget.TextView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.app2hands.Adapter.ImageProductAdapter;
 import com.example.app2hands.Model.Product;
 
 import java.util.ArrayList;
 
 public class ProductDetail extends AppCompatActivity {
     public static final String EXTRA_PRODUCT = "extra_product";
-    ImageSlider imageSlider;
     ImageView arrowBack;
     TextView productPrice, productName, productStatus;
+    RecyclerView rvImageDetailProduct;
+    ArrayList<Uri> listUri = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-
-        ///Slider
-        imageSlider = findViewById(R.id.imageDetailProduct);
-        ArrayList<SlideModel> slideModels = new ArrayList<>();
-
-
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-
-        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
 
         ///Back Arrow
@@ -57,6 +49,17 @@ public class ProductDetail extends AppCompatActivity {
         productPrice.setText(product.getProductPrice());
         productName.setText(product.getProductName());
         productStatus.setText(product.getProductStatus());
+        listUri = product.getImg();
+
+
+        //Slider
+        rvImageDetailProduct = findViewById(R.id.rvImageDetailProduct);
+        ImageProductAdapter adapter = new ImageProductAdapter(listUri, this);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        rvImageDetailProduct.setAdapter(adapter);
+        rvImageDetailProduct.setLayoutManager(linearLayoutManager);
 
     }
 }
