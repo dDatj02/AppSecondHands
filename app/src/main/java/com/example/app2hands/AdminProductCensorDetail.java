@@ -10,11 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.app2hands.Adapter.ImageProductAdapter;
-import com.example.app2hands.Adapter.MessageAdapter;
 import com.example.app2hands.Model.Product;
 
 import java.util.ArrayList;

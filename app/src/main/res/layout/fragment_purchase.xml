@@ -4,44 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.StoreManageFragment"
+    tools:context=".Fragment.PurchaseFragment"
     android:orientation="vertical"
     android:background="@color/white">
-
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý mặt hàng bán"
+        android:text="Lịch sử mua hàng"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         android:paddingLeft="20dp"
         android:paddingTop="20dp"/>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvManageStore"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:padding="5dp" />
+            android:layout_below="@+id/tabLayout" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAddProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="30sp"
-            android:background="@drawable/bg_btn_add"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10dp"/>
     </RelativeLayout>
-
 
 </LinearLayout>
