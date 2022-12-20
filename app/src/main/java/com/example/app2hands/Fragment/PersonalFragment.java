@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ import com.example.app2hands.UserNotification;
  */
 public class PersonalFragment extends Fragment {
     LinearLayout changePassword, infoApp, notification;
+    CardView user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,6 +81,16 @@ public class PersonalFragment extends Fragment {
         changePassword = view.findViewById(R.id.changePassword);
         infoApp = view.findViewById(R.id.infoApp);
         notification = view.findViewById(R.id.notification);
+        user = view.findViewById(R.id.user);
+
+
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
 
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override

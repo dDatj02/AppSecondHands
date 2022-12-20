@@ -6,15 +6,24 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.app2hands.Adapter.ProductAdapter;
+import com.example.app2hands.Adapter.PurchaseOrderAdapter;
 import com.example.app2hands.AddNoti;
 import com.example.app2hands.AddProduct;
+import com.example.app2hands.Model.Product;
 import com.example.app2hands.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +31,7 @@ import com.example.app2hands.R;
  * create an instance of this fragment.
  */
 public class StoreManageFragment extends Fragment {
+    RecyclerView rvManageStore;
     Button btnAddProduct;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -75,6 +85,17 @@ public class StoreManageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        rvManageStore = view.findViewById(R.id.rvManageStore);
+
+        ArrayList<Product> products = (ArrayList<Product>) initData();
+
+        ProductAdapter adapter = new ProductAdapter(products, getContext());
+
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+
+        rvManageStore.setAdapter(adapter);
+        rvManageStore.setLayoutManager(layoutManager);
+
         btnAddProduct = view.findViewById(R.id.btnAddProduct);
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,5 +104,10 @@ public class StoreManageFragment extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+
+    public List<Product> initData(){
+        List<Product> productList = new ArrayList<>();
+        return productList;
     }
 }
