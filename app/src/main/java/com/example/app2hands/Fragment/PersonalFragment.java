@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import com.example.app2hands.AppVersion;
 import com.example.app2hands.ChangePassword;
 import com.example.app2hands.R;
+import com.example.app2hands.UserInfoActivity;
 import com.example.app2hands.UserNotification;
 
 /**

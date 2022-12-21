@@ -6,23 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".AddProduct"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:text="Ten San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
             android:id="@+id/productName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="6"
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
@@ -30,18 +34,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:text="Loai San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
             android:id="@+id/productType"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="6"
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
@@ -49,18 +56,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:text="Tinh trang:"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
             android:id="@+id/productStatus"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="6"
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
@@ -68,18 +78,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:text="Gia San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <EditText
             android:id="@+id/productPrice"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="6"
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
@@ -87,7 +100,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -113,6 +127,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Image Product"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_btn_add"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Product"
             android:textColor="@color/black"
             android:background="@drawable/bg_btn_add"/>
 

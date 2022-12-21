@@ -18,11 +18,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.app2hands.Model.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddProduct extends AppCompatActivity {
-    Button btnSelectImage;
+    Button btnSelectImage, btnAdd;
     EditText productName, productType, productStatus, productPrice, productDescription;
     private static final int Read_Permission = 101;
     ArrayList<Uri> uri = new ArrayList<>();
@@ -38,6 +40,7 @@ public class AddProduct extends AppCompatActivity {
         productPrice = findViewById(R.id.productPrice);
         productDescription = findViewById(R.id.productDescription);
         btnSelectImage = findViewById(R.id.btnSelectImage);
+        btnAdd = findViewById(R.id.btnAdd);
 
 
         String nameProduct = productName.getText().toString();
@@ -45,6 +48,14 @@ public class AddProduct extends AppCompatActivity {
         String statusProduct = productStatus.getText().toString();
         String priceProduct = productPrice.getText().toString();
         String descriptionProduct = productDescription.getText().toString();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Product product = new Product(uri, nameProduct, typeProduct, statusProduct, priceProduct, descriptionProduct);
+            }
+        });
+
 
         if(ContextCompat.checkSelfPermission(AddProduct.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(AddProduct.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, Read_Permission);

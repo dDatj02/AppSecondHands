@@ -1,5 +1,8 @@
 package com.example.app2hands.Adapter;
 
+import android.os.Parcelable;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -42,6 +45,15 @@ public class PurchaseViewPagerAdapter extends FragmentStatePagerAdapter {
                 return "Đơn đã mua";
             default:
                 return "Đơn đang mua";
+        }
+    }
+
+    @Override
+    public void restoreState(@Nullable Parcelable state, @Nullable ClassLoader loader) {
+        try {
+            super.restoreState(state, loader);
+        } catch (Exception e) {
+            Log.e("TAG", "Error Restore State of Fragment : " + e.getMessage(), e);
         }
     }
 }

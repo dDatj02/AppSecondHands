@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.UserInfoActivity"
-    android:layout_margin="10dp"
+    tools:context=".UserInfoActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/lightGrey">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,33 +76,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Số Điện Thoại"
+                android:text="Ngày sinh"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
             <EditText
-                android:id="@+id/edtPhone1"
+                android:id="@+id/edtBirth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="Số Điện Thoại"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
-            <EditText
-                android:id="@+id/edtPhone2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"/>
 
         </LinearLayout>
 
@@ -124,7 +108,5 @@
 
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </LinearLayout>
