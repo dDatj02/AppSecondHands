@@ -46,10 +46,10 @@ public class AdminProductDetail extends AppCompatActivity {
         productName = findViewById(R.id.productNameDetail);
         productStatus = findViewById(R.id.tvStatus);
 
-        productPrice.setText(product.getProductPrice());
-        productName.setText(product.getProductName());
-        productStatus.setText(product.getProductStatus());
-        listUri = product.getImg();
+        productName.setText(product.getName());
+        productPrice.setText(product.getPrice());
+        productStatus.setText(product.getStatus());
+//        listUri = product.getImg();
 
 
 

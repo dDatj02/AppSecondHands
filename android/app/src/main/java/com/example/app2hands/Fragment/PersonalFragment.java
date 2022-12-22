@@ -1,23 +1,27 @@
 package com.example.app2hands.Fragment;
 
-import android.content.Intent;
-import android.os.Bundle;
+        import static com.example.app2hands.Login.USER;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
+        import android.content.Intent;
+        import android.os.Bundle;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+        import androidx.annotation.NonNull;
+        import androidx.annotation.Nullable;
+        import androidx.cardview.widget.CardView;
+        import androidx.fragment.app.Fragment;
 
-import com.example.app2hands.AppVersion;
-import com.example.app2hands.ChangePassword;
-import com.example.app2hands.R;
-import com.example.app2hands.UserInfoActivity;
-import com.example.app2hands.UserNotification;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.LinearLayout;
+        import android.widget.TextView;
+
+        import com.example.app2hands.AppVersion;
+        import com.example.app2hands.ChangePassword;
+        import com.example.app2hands.Login;
+        import com.example.app2hands.R;
+        import com.example.app2hands.UserInfoActivity;
+        import com.example.app2hands.UserNotification;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,8 +29,9 @@ import com.example.app2hands.UserNotification;
  * create an instance of this fragment.
  */
 public class PersonalFragment extends Fragment {
-    LinearLayout changePassword, infoApp, notification;
-    CardView user;
+    LinearLayout changePassword, infoApp, notification, logoutBtn;
+    TextView tvName;
+    CardView cvUser;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,13 +84,17 @@ public class PersonalFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        tvName = view.findViewById(R.id.tvName);
         changePassword = view.findViewById(R.id.changePassword);
         infoApp = view.findViewById(R.id.infoApp);
         notification = view.findViewById(R.id.notification);
-        user = view.findViewById(R.id.user);
+        logoutBtn = view.findViewById(R.id.logout);
 
+        tvName.setText(USER.getName());
 
-        user.setOnClickListener(new View.OnClickListener() {
+        cvUser = view.findViewById(R.id.cvUser);
+
+        cvUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), UserInfoActivity.class);
@@ -113,6 +122,14 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), UserNotification.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Login.class);
                 startActivity(intent);
             }
         });

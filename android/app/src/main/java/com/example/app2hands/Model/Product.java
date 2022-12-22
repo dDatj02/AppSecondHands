@@ -1,34 +1,23 @@
 package com.example.app2hands.Model;
 
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
+import com.google.gson.annotations.SerializedName;
 
-public class Product implements Parcelable{
-    private ArrayList<Uri> img;
-    private String productName, productPrice, productStatus, productType, productDescription;
-
-    public Product() {
-    }
-
-    public Product(ArrayList<Uri> img, String productName, String productPrice, String productStatus, String productType, String productDescription) {
-        this.img = img;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productStatus = productStatus;
-        this.productType = productType;
-        this.productDescription = productDescription;
-    }
+public class Product implements Parcelable {
+    @SerializedName("_id")
+    private String id;
+    private String image, name, price, status, type, description;
 
     protected Product(Parcel in) {
-        img = in.createTypedArrayList(Uri.CREATOR);
-        productName = in.readString();
-        productPrice = in.readString();
-        productStatus = in.readString();
-        productType = in.readString();
-        productDescription = in.readString();
+        id = in.readString();
+        image = in.readString();
+        name = in.readString();
+        price = in.readString();
+        status = in.readString();
+        type = in.readString();
+        description = in.readString();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -43,53 +32,62 @@ public class Product implements Parcelable{
         }
     };
 
-    public ArrayList<Uri> getImg() {
-        return img;
+    public String getId() {
+        return id;
     }
 
-    public void setImg(ArrayList<Uri> img) {
-        this.img = img;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getImage() {
+        return image;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getProductPrice() {
-        return productPrice;
+    public String getName() {
+        return name;
     }
 
-    public void setProductPrice(String productPrice) {
-        this.productPrice = productPrice;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProductStatus() {
-        return productStatus;
+    public String getPrice() {
+        return price;
     }
 
-    public void setProductStatus(String productStatus) {
-        this.productStatus = productStatus;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getStatus() {
+        return status;
     }
 
-    public void setProductType(String productType) {
-        this.productType = productType;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    public String getType() {
+        return type;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setType(String type) {
+        this.type = type;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Override
     public int describeContents() {
@@ -97,12 +95,13 @@ public class Product implements Parcelable{
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(img);
-        dest.writeString(productName);
-        dest.writeString(productPrice);
-        dest.writeString(productStatus);
-        dest.writeString(productType);
-        dest.writeString(productDescription);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(image);
+        parcel.writeString(name);
+        parcel.writeString(price);
+        parcel.writeString(status);
+        parcel.writeString(type);
+        parcel.writeString(description);
     }
 }

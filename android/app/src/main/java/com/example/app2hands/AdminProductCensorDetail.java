@@ -1,5 +1,7 @@
 package com.example.app2hands;
 
+import static com.example.app2hands.Api.ApiService.DOMAIN;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.app2hands.Adapter.ImageProductAdapter;
 import com.example.app2hands.Model.Product;
 
@@ -37,12 +40,12 @@ public class AdminProductCensorDetail extends AppCompatActivity {
         productDescription = findViewById(R.id.tvDescribe);
 
 
-        productPrice.setText(product.getProductPrice());
-        productName.setText(product.getProductName());
-        productStatus.setText(product.getProductStatus());
-        productType.setText(product.getProductType());
-        productDescription.setText(product.getProductDescription());
-        listUri = product.getImg();
+//        Glide.with(AdminProductCensorDetail.this).load(DOMAIN + product.getImage()).into(ivImg);
+        productName.setText(product.getName());
+        productPrice.setText(product.getPrice());
+        productStatus.setText(product.getStatus());
+        productType.setText(product.getType());
+        productDescription.setText(product.getDescription());
 
         ///Slider
         rvImageDetailProduct = findViewById(R.id.rvImageDetailProduct);

@@ -1,5 +1,7 @@
 package com.example.app2hands.Fragment;
 
+import static com.example.app2hands.Login.USER;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,16 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.app2hands.Api.ApiService;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.Adapter.ProductAdapter;
 import com.example.app2hands.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +37,7 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
     ImageSlider imageSlider;
-    RecyclerView rvProduct;
+    RecyclerView rv;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,11 +90,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         ///Slider
         imageSlider = view.findViewById(R.id.imageSlider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-
 
         slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
@@ -96,22 +102,25 @@ public class HomeFragment extends Fragment {
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-
         ///RecyclerView
-        rvProduct = view.findViewById(R.id.rvHome);
+        rv = view.findViewById(R.id.rvHome);
 
-        ArrayList<Product> products = (ArrayList<Product>) initData();
+        ApiService.api.executeGetSellingProducts().enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<Product> productList = (ArrayList<Product>) response.body();
+                    ProductAdapter adapter = new ProductAdapter(productList, getContext());
+                    GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+                    rv.setAdapter(adapter);
+                    rv.setLayoutManager(layoutManager);
+                }
+            }
 
-        ProductAdapter adapter = new ProductAdapter(products, getContext());
-
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
-
-        rvProduct.setAdapter(adapter);
-        rvProduct.setLayoutManager(layoutManager);
-    }
-
-    public List<Product> initData(){
-        List<Product> productList = new ArrayList<>();
-        return productList;
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(getContext(), "Can't get data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

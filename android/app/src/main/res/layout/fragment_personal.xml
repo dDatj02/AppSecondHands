@@ -19,7 +19,7 @@
         android:paddingTop="20dp"/>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/user"
+        android:id="@+id/cvUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
@@ -47,30 +47,14 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp">
                 <TextView
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:text="Số dư:"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:padding="3dp"
-                        android:text="0đ"/>
-                </LinearLayout>
             </LinearLayout>
 
             <ImageView
@@ -256,9 +240,7 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_arrow_forward"
                     />
-
             </LinearLayout>
-
 
             <View
                 android:layout_marginTop="5dp"
@@ -284,18 +266,7 @@
                     android:text="Đăng xuất"
                     android:textColor="@color/red"
                     android:textSize="18sp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_arrow_forward"
-                    />
-
             </LinearLayout>
-
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

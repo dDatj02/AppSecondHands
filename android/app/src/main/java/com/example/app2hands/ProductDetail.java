@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ProductDetail extends AppCompatActivity {
     public static final String EXTRA_PRODUCT = "extra_product";
     ImageView arrowBack;
-    TextView productPrice, productName, productStatus;
+    TextView productPrice, productName, productStatus, productDesc, productType;
     RecyclerView rvImageDetailProduct;
     ArrayList<Uri> listUri = new ArrayList<>();
 
@@ -44,12 +44,15 @@ public class ProductDetail extends AppCompatActivity {
         Product product = getIntent().getParcelableExtra(EXTRA_PRODUCT);
         productPrice = findViewById(R.id.productPriceDetail);
         productName = findViewById(R.id.productNameDetail);
+        productDesc = findViewById(R.id.tvDescribe);
+        productType = findViewById(R.id.tvType);
         productStatus = findViewById(R.id.tvStatus);
 
-        productPrice.setText(product.getProductPrice());
-        productName.setText(product.getProductName());
-        productStatus.setText(product.getProductStatus());
-        listUri = product.getImg();
+        productPrice.setText(product.getPrice());
+        productName.setText(product.getName());
+        productStatus.setText(product.getStatus());
+        productDesc.setText(product.getDescription());
+        productType.setText(product.getType());
 
 
         //Slider

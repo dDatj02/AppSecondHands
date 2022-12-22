@@ -1,5 +1,7 @@
 package com.example.app2hands.Adapter;
 
+import static com.example.app2hands.Api.ApiService.DOMAIN;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.app2hands.AdminProductDetail;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.ProductDetail;
@@ -40,10 +43,10 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = listProduct.get(position);
 
-        holder.ivImg.setImageURI(product.getImg().get(0));
-        holder.tvProductName.setText(product.getProductName());
-        holder.tvProductPrice.setText(product.getProductPrice());
-        holder.tvProductStatus.setText(product.getProductStatus());
+        Glide.with(context).load(DOMAIN + product.getImage()).into(holder.ivImg);
+        holder.tvProductName.setText(product.getName());
+        holder.tvProductPrice.setText(product.getPrice());
+        holder.tvProductStatus.setText(product.getStatus());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

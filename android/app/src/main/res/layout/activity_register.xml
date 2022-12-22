@@ -76,6 +76,20 @@
                         android:text="Register" />
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/loginBoxMargin">
+
+                        <EditText
+                            android:id="@+id/editTextName"
+                            style="@style/modifiedEditText"
+                            android:hint="Name"
+                            android:textColorHint="@color/grey"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/textInputEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -121,7 +135,7 @@
                     </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/cirLoginButton"
+                        android:id="@+id/registerBtn"
                         style="@style/loginButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -134,16 +148,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/loginBoxMargin"
-                        android:onClick="viewRegisterClicked"
                         android:text="@string/login_signin_hint"
                         android:textAlignment="center"
                         android:textColor="@color/primaryTextColor"
                         android:textStyle="bold" />
-
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </RelativeLayout>
-
 </RelativeLayout>

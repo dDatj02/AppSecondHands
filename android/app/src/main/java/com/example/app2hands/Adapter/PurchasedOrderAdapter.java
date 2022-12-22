@@ -1,5 +1,7 @@
 package com.example.app2hands.Adapter;
 
+import static com.example.app2hands.Api.ApiService.DOMAIN;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.R;
 
@@ -37,9 +40,9 @@ public class PurchasedOrderAdapter extends RecyclerView.Adapter<PurchasedOrderAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = listProduct.get(position);
 
-        holder.ivImg.setImageURI(product.getImg().get(0));
-        holder.tvName.setText(product.getProductName());
-        holder.tvPrice.setText(product.getProductPrice());
+        Glide.with(context).load(DOMAIN + product.getImage()).into(holder.ivImg);
+        holder.tvName.setText(product.getName());
+        holder.tvPrice.setText(product.getPrice());
     }
 
     @Override
