@@ -1,23 +1,33 @@
 package com.example.app2hands.Fragment.PurchaseHistory;
 
+import static com.example.app2hands.Login.USER;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.app2hands.Adapter.ProductAdapter;
 import com.example.app2hands.Adapter.PurchaseOrderAdapter;
+import com.example.app2hands.Api.ApiService;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,18 +89,22 @@ public class PurchasedFragment extends Fragment {
 
         rvPurchased = view.findViewById(R.id.rvPurchased);
 
-        ArrayList<Product> products = (ArrayList<Product>) initData();
+        ApiService.api.executeGetUserDoneOrders(USER.getId()).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<Product> productList = (ArrayList<Product>) response.body();
+                    ProductAdapter adapter = new ProductAdapter(productList, getContext());
+                    GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+                    rvPurchased.setAdapter(adapter);
+                    rvPurchased.setLayoutManager(layoutManager);
+                }
+            }
 
-        PurchaseOrderAdapter adapter = new PurchaseOrderAdapter(products, getContext());
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-
-        rvPurchased.setAdapter(adapter);
-        rvPurchased.setLayoutManager(linearLayoutManager);
-    }
-
-    public List<Product> initData(){
-        List<Product> productList = new ArrayList<>();
-        return productList;
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(getContext(), "Can't get data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

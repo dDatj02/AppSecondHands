@@ -1,19 +1,68 @@
 const catchAsync = require('../utils/catchAsync');
-const { productService, userService } = require('../services');
+const { marketService } = require('../services');
 
 const orderController = {
     getSellingProducts: catchAsync(async (req, res) => {
-        const users = await userService
-            .get({}, { field: 'store name', populate: 'store.product' })
+        const list = await marketService
+            .get(
+                { status: 'censored' },
+                { field: 'product seller -_id', populate: 'product seller' }
+            )
             .catch((err) => {
-                return res.status(400).send('Get data fail' + err);
+                return res.status(400).send('Get data fail');
             });
-        const result = users.map((user) => {
-            if (user.store.status == 'censored') {
-                return ;
-            }
+
+        const result = list.map((item) => {
+            return {
+                ...item.product,
+                sellStatus: '',
+                sellerAvt: item.seller.avatar,
+                sellerName: item.seller.name,
+            };
         });
-        res.status(200).json(users);
+        res.status(200).json(result);
+    }),
+
+    getUserDoneOrders: catchAsync(async (req, res) => {
+        const list = await marketService
+            .get(
+                { status: 'sold', buyer: req.params.userId },
+                { field: 'product seller -_id', populate: 'product seller' }
+            )
+            .catch((err) => {
+                return res.status(400).send('Get data fail');
+            });
+
+        const result = list.map((item) => {
+            return {
+                ...item.product,
+                sellerAvt: item.seller.avatar,
+                sellStatus: '',
+                sellerName: item.seller.name,
+            };
+        });
+        res.status(200).json(result);
+    }),
+
+    getUserBuyingOrders: catchAsync(async (req, res) => {
+        const list = await marketService
+            .get(
+                { status: 'shipping', buyer: req.params.userId },
+                { field: 'product seller -_id', populate: 'product seller' }
+            )
+            .catch((err) => {
+                return res.status(400).send('Get data fail');
+            });
+
+        const result = list.map((item) => {
+            return {
+                ...item.product,
+                sellerAvt: item.seller.avatar,
+                sellStatus: '',
+                sellerName: item.seller.name,
+            };
+        });
+        res.status(200).json(result);
     }),
 };
 

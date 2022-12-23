@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvImageDetailProduct"
+                <ImageView
+                    android:id="@+id/ivImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp" />
 
@@ -196,6 +196,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/seller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlDescribe"
@@ -242,11 +243,32 @@
                     android:text="SMS"
                     android:background="@drawable/login_button_bg"/>
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/seller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/buyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="Mua hàng"/>
+
+            <Button
+                android:id="@+id/delBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:visibility="gone"
+                android:text="Xoá"/>
 
         </LinearLayout>
 
 
-
     </RelativeLayout>
-
 </LinearLayout>

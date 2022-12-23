@@ -1,38 +1,28 @@
 package com.example.app2hands;
 
 import static com.example.app2hands.Api.ApiService.DOMAIN;
+import static com.example.app2hands.MainActivity.CURR_NAV;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.app2hands.Adapter.ImageProductAdapter;
 import com.example.app2hands.Model.Product;
-
-import java.util.ArrayList;
 
 public class ProductDetail extends AppCompatActivity {
     public static final String EXTRA_PRODUCT = "extra_product";
-    ImageView arrowBack, ivAvt;
+    ImageView arrowBack, ivAvt, ivImage;
     TextView productPrice, productName, productStatus, productDesc, productType, tvSeller;
-    RecyclerView rvImageDetailProduct;
-    ArrayList<Uri> listUri = new ArrayList<>();
+    Button buyBtn, delBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-
 
         ///Back Arrow
         arrowBack = findViewById(R.id.arrowBack);
@@ -52,6 +42,9 @@ public class ProductDetail extends AppCompatActivity {
         productStatus = findViewById(R.id.tvStatus);
         tvSeller = findViewById(R.id.tvSeller);
         ivAvt = findViewById(R.id.ivAvatar);
+        ivImage = findViewById(R.id.ivImage);
+        buyBtn = findViewById(R.id.buyBtn);
+        delBtn = findViewById(R.id.delBtn);
 
         productPrice.setText(product.getPrice());
         productName.setText(product.getName());
@@ -60,15 +53,23 @@ public class ProductDetail extends AppCompatActivity {
         productType.setText(product.getType());
         tvSeller.setText(product.getSellerName());
         Glide.with(ProductDetail.this).load(DOMAIN + product.getSellerAvt()).into(ivAvt);
+        Glide.with(ProductDetail.this).load(DOMAIN + product.getImage()).into(ivImage);
 
-        //Slider
-        rvImageDetailProduct = findViewById(R.id.rvImageDetailProduct);
-        ImageProductAdapter adapter = new ImageProductAdapter(listUri, this);
+        if (CURR_NAV.equals("home")) buyBtn.setVisibility(View.VISIBLE);
+        if (CURR_NAV.equals("store")) delBtn.setVisibility(View.VISIBLE);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        buyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        rvImageDetailProduct.setAdapter(adapter);
-        rvImageDetailProduct.setLayoutManager(linearLayoutManager);
+            }
+        });
 
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }

@@ -1,12 +1,14 @@
 package com.example.app2hands.Adapter;
 
 import static com.example.app2hands.Api.ApiService.DOMAIN;
+import static com.example.app2hands.MainActivity.CURR_NAV;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +48,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvProductPrice.setText(product.getPrice());
         holder.tvProductStatus.setText(product.getStatus());
 
+        String sellStatus;
+        switch (product.getSellStatus()) {
+            case "pending":
+                sellStatus = "Chờ duyệt";
+                break;
+            case "shipping":
+                sellStatus = "Đang vận chuyển";
+                break;
+            case "sold":
+                sellStatus = "Đã bán";
+                break;
+            default:
+                sellStatus = "";
+                break;
+        }
+        holder.tvSellStatus.setText(sellStatus);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,13 +82,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImg;
-        TextView tvProductName, tvProductPrice, tvProductStatus;
+        TextView tvProductName, tvProductPrice, tvProductStatus, tvSellStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivImg = itemView.findViewById(R.id.productImage);
             tvProductName = itemView.findViewById(R.id.productName);
             tvProductPrice = itemView.findViewById(R.id.productPrice);
             tvProductStatus = itemView.findViewById(R.id.productStatus);
+            tvSellStatus = itemView.findViewById(R.id.tvStatus);
+
         }
     }
 }

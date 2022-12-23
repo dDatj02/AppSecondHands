@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    public static String CURR_NAV = "home";
 
     HomeFragment homeFragment = new HomeFragment();
     PurchaseFragment messageFragment = new PurchaseFragment();
@@ -34,15 +35,19 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
+                        CURR_NAV = "home";
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                         return  true;
                     case R.id.message:
+                        CURR_NAV = "order";
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, messageFragment).commit();
                         return  true;
                     case R.id.store:
+                        CURR_NAV = "store";
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, storeManageFragment).commit();
                         return  true;
                     case R.id.personal:
+                        CURR_NAV = "profile";
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, personalFragment).commit();
                         return  true;
                 }

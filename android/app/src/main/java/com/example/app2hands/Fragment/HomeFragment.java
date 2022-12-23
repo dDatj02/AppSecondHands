@@ -95,10 +95,10 @@ public class HomeFragment extends Fragment {
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
         slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.anhtest, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.slide1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.slide2, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.slide3, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.slide4, ScaleTypes.FIT));
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 

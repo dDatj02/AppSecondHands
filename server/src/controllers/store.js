@@ -6,7 +6,7 @@ const storeController = {
         const store = await marketService
             .get(
                 { seller: req.params.userId },
-                { field: 'seller product -_id', populate: 'seller product' }
+                { field: 'seller product status', populate: 'seller product' }
             )
             .catch((err) => {
                 return res.status(400).send('Get data fail' + err);
@@ -15,6 +15,7 @@ const storeController = {
             return {
                 ...item.product,
                 sellerAvt: item.seller.avatar,
+                sellStatus: item.status,
                 sellerName: item.seller.name,
             };
         });

@@ -74,18 +74,12 @@ public class PurchaseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         mView = inflater.inflate(R.layout.fragment_purchase, container, false);
-
         tabLayout = mView.findViewById(R.id.tabLayout);
         viewPager = mView.findViewById(R.id.viewPager);
-
         PurchaseViewPagerAdapter adapter = new PurchaseViewPagerAdapter(getChildFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-
         viewPager.setAdapter(adapter);
-
         tabLayout.setupWithViewPager(viewPager);
-
         return mView;
     }
 

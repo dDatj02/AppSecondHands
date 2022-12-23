@@ -38,9 +38,18 @@ public interface ApiService {
     @POST("/auth/change-password")
     Call<Void> executeChangePassword(@Body HashMap<String, String> map);
 
+    @GET("/selling-products")
+    Call<List<Product>> executeGetSellingProducts();
+
 //    User's products
     @GET("/{userId}/products")
     Call<List<Product>> executeGetUserStore(@Path("userId") String userId);
+
+    @GET("/{userId}/buying-orders")
+    Call<List<Product>> executeGetUserBuyingOrders(@Path("userId") String userId);
+
+    @GET("/{userId}/done-orders")
+    Call<List<Product>> executeGetUserDoneOrders(@Path("userId") String userId);
 
     @Multipart
     @POST("/{userId}")
@@ -49,9 +58,6 @@ public interface ApiService {
                                     @Part("phone")RequestBody phone,
                                     @Part("address")RequestBody address,
                                     @Part MultipartBody.Part avatar);
-
-    @GET("/selling-products")
-    Call<List<Product>> executeGetSellingProducts();
 
     @Multipart
     @POST("/{userId}/products/create")
