@@ -78,12 +78,18 @@ public class AddProduct extends AppCompatActivity {
     }
 
     private void addProduct() {
-        dialog.show();
         String name = productName.getText().toString().trim();
         String type = productType.getText().toString().trim();
         String status = productStatus.getText().toString().trim();
         String price = productPrice.getText().toString().trim();
         String description = productDescription.getText().toString().trim();
+
+        if (name.isEmpty() || price.isEmpty()) {
+            Toast.makeText(AddProduct.this, "Vui lòng nhập đầy đủ thông tin",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        dialog.show();
 
         RequestBody rbName = RequestBody.create(MediaType.parse("multipart/form-data"), name);
         RequestBody rbPrice = RequestBody.create(MediaType.parse("multipart/form-data"), price);
@@ -97,7 +103,7 @@ public class AddProduct extends AppCompatActivity {
         MultipartBody.Part multiPart = MultipartBody.Part
                 .createFormData("product", file.getName(), rbImage);
 
-        ApiService.api.executeCreateProduct(USER.getId(), rbName, rbPrice, rbStatus, rbType,
+        ApiService.api.executeSellProduct(USER.getId(), rbName, rbPrice, rbStatus, rbType,
                 rbDescription, multiPart).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

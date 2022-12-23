@@ -12,12 +12,12 @@ android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:text="Ten San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -34,12 +34,12 @@ android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:text="Loai San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -56,12 +56,12 @@ android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:text="Tinh trang:"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -78,12 +78,12 @@ android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:text="Gia San Pham:"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -94,13 +94,14 @@ android:layout_margin="10dp">
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:textSize="16sp"
+            android:inputType="number"
             android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"

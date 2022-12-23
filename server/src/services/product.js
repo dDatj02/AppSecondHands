@@ -1,12 +1,16 @@
 const { productModel } = require('../models');
 
 const productService = {
-    getOne: async (payloads, field='-__v') => {
-        return await productModel.findOne(payloads, field).lean();
+    getOne: async (query, options) => {
+        field = options.field || '-__v';
+        populate = options.populate || '';
+        return await productModel.findOne(query, field).populate(populate).lean();
     },
 
-    get: async (payloads, field='-__v') => {
-        return await productModel.find(payloads, field).lean();
+    get: async (query, options) => {
+        field = options.field || '-__v';
+        populate = options.populate || '';
+        return await productModel.find(query, field).populate(populate).lean();
     },
 
     create: async (payloads) => {

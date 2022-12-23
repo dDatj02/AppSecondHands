@@ -1,5 +1,7 @@
 package com.example.app2hands;
 
+import static com.example.app2hands.Api.ApiService.DOMAIN;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -20,8 +23,8 @@ import java.util.ArrayList;
 
 public class ProductDetail extends AppCompatActivity {
     public static final String EXTRA_PRODUCT = "extra_product";
-    ImageView arrowBack;
-    TextView productPrice, productName, productStatus, productDesc, productType;
+    ImageView arrowBack, ivAvt;
+    TextView productPrice, productName, productStatus, productDesc, productType, tvSeller;
     RecyclerView rvImageDetailProduct;
     ArrayList<Uri> listUri = new ArrayList<>();
 
@@ -47,13 +50,16 @@ public class ProductDetail extends AppCompatActivity {
         productDesc = findViewById(R.id.tvDescribe);
         productType = findViewById(R.id.tvType);
         productStatus = findViewById(R.id.tvStatus);
+        tvSeller = findViewById(R.id.tvSeller);
+        ivAvt = findViewById(R.id.ivAvatar);
 
         productPrice.setText(product.getPrice());
         productName.setText(product.getName());
         productStatus.setText(product.getStatus());
         productDesc.setText(product.getDescription());
         productType.setText(product.getType());
-
+        tvSeller.setText(product.getSellerName());
+        Glide.with(ProductDetail.this).load(DOMAIN + product.getSellerAvt()).into(ivAvt);
 
         //Slider
         rvImageDetailProduct = findViewById(R.id.rvImageDetailProduct);

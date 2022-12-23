@@ -6,6 +6,7 @@ const User = new Schema({
         type: String,
         required: true,
     },
+    avatar: { type: String, default: '/images/avatardefault.webp' },
     email: {
         type: String,
         required: true,
@@ -15,26 +16,8 @@ const User = new Schema({
         type: String,
         required: true,
     },
-    address:  String,
-    gender: String,
-    orders: [
-        {
-            product: { type: Schema.Types.ObjectId, ref: 'Product' },
-            status: {
-                type: String,
-                enum: ['done', 'shipping', 'preparing'],
-            },
-        },
-    ],
-    store: [
-        {
-            product: { type: Schema.Types.ObjectId, ref: 'Product' },
-            status: {
-                type: String,
-                enum: ['censored', 'pending', 'sold'],
-            },
-        },
-    ],
+    address: String,
+    phone: String,
     role: {
         type: String,
         enum: ['admin', 'user'],

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.app2hands.Api.ApiService;
-import com.example.app2hands.Api.LoginResult;
+import com.example.app2hands.Model.User;
 
 import java.util.HashMap;
 
@@ -24,7 +24,7 @@ public class Login extends AppCompatActivity {
     TextView tvRegister;
     Button btnButton;
     EditText edtEmail, edtPassword;
-    public static LoginResult USER;
+    public static User USER;
     ProgressDialog dialog;
 
     @Override
@@ -63,19 +63,19 @@ public class Login extends AppCompatActivity {
                     map.put("password", password);
 
                     ApiService.api.executeLogin(map)
-                            .enqueue(new Callback<LoginResult>() {
+                            .enqueue(new Callback<User>() {
                                 @Override
-                                public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                                public void onResponse(Call<User> call, Response<User> response) {
                                     dialog.dismiss();
                                     if (response.code() == 200) {
                                         USER = response.body();
                                         Intent intent;
                                         if (USER.getRole().equals("admin")) {
-                                            intent = new Intent(Login.this
-                                                    , AdminActivity.class);
+                                            intent = new Intent(Login.this,
+                                                    AdminActivity.class);
                                         } else {
-                                            intent = new Intent(Login.this
-                                                    , MainActivity.class);
+                                            intent = new Intent(Login.this,
+                                                    MainActivity.class);
                                         }
                                         startActivity(intent);
                                         finish();
@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
                                 }
 
                                 @Override
-                                public void onFailure(Call<LoginResult> call, Throwable t) {
+                                public void onFailure(Call<User> call, Throwable t) {
                                     dialog.dismiss();
                                     Toast.makeText(Login.this, "Login fail",
                                             Toast.LENGTH_SHORT).show();

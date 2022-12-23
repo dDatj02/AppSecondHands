@@ -8,7 +8,8 @@ import com.google.gson.annotations.SerializedName;
 public class Product implements Parcelable {
     @SerializedName("_id")
     private String id;
-    private String image, name, price, status, type, description;
+    private String image, name, price, status, type, description, sellerAvt, sellerName;
+
 
     protected Product(Parcel in) {
         id = in.readString();
@@ -18,6 +19,8 @@ public class Product implements Parcelable {
         status = in.readString();
         type = in.readString();
         description = in.readString();
+        sellerAvt = in.readString();
+        sellerName = in.readString();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -38,6 +41,22 @@ public class Product implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSellerAvt() {
+        return sellerAvt;
+    }
+
+    public void setSellerAvt(String sellerAvt) {
+        this.sellerAvt = sellerAvt;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
     }
 
     public String getImage() {
@@ -103,5 +122,7 @@ public class Product implements Parcelable {
         parcel.writeString(status);
         parcel.writeString(type);
         parcel.writeString(description);
+        parcel.writeString(sellerAvt);
+        parcel.writeString(sellerName);
     }
 }

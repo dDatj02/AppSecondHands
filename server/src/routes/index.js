@@ -5,14 +5,11 @@ var userRouter = require('./user');
 var adminRouter = require('./admin');
 var authRouter = require('./auth');
 
-const { productController } = require('../controllers');
+const { orderController } = require('../controllers');
 
-const classifyUser = require('../utils/classifyUser');
-
-router.use(classifyUser);
 router.use('/admin', adminRouter);
 router.use('/auth', authRouter);
-router.get('/selling-products', productController.getSellingProducts);
+router.get('/selling-products', orderController.getSellingProducts);
 router.use('/', userRouter);
 
 module.exports = router;

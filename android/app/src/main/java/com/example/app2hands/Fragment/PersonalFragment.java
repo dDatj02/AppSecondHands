@@ -1,27 +1,32 @@
 package com.example.app2hands.Fragment;
 
-        import static com.example.app2hands.Login.USER;
+import static com.example.app2hands.Api.ApiService.DOMAIN;
+import static com.example.app2hands.Login.USER;
 
-        import android.content.Intent;
-        import android.os.Bundle;
+import android.content.Intent;
+import android.os.Bundle;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.cardview.widget.CardView;
-        import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-        import com.example.app2hands.AppVersion;
-        import com.example.app2hands.ChangePassword;
-        import com.example.app2hands.Login;
-        import com.example.app2hands.R;
-        import com.example.app2hands.UserInfoActivity;
-        import com.example.app2hands.UserNotification;
+import com.bumptech.glide.Glide;
+import com.example.app2hands.AppVersion;
+import com.example.app2hands.ChangePassword;
+import com.example.app2hands.Login;
+import com.example.app2hands.R;
+import com.example.app2hands.UserInfoActivity;
+import com.example.app2hands.UserNotification;
+import com.google.gson.Gson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +37,7 @@ public class PersonalFragment extends Fragment {
     LinearLayout changePassword, infoApp, notification, logoutBtn;
     TextView tvName;
     CardView cvUser;
+    ImageView ivAvt;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -89,10 +95,11 @@ public class PersonalFragment extends Fragment {
         infoApp = view.findViewById(R.id.infoApp);
         notification = view.findViewById(R.id.notification);
         logoutBtn = view.findViewById(R.id.logout);
+        ivAvt = view.findViewById(R.id.ivAvatar);
+        cvUser = view.findViewById(R.id.cvUser);
 
         tvName.setText(USER.getName());
-
-        cvUser = view.findViewById(R.id.cvUser);
+        Glide.with(getContext()).load(DOMAIN + USER.getAvatar()).into(ivAvt);
 
         cvUser.setOnClickListener(new View.OnClickListener() {
             @Override

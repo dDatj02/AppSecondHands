@@ -1,35 +1,34 @@
 package com.example.app2hands.Model;
 
-import android.net.Uri;
+import com.google.gson.annotations.SerializedName;
 
 public class User {
-    Uri avatar;
-    String username, phone, birth;
+    @SerializedName("_id")
+    private String id;
+    private String avatar, name, phone, address, role;
 
-    public User() {
+    public String getId() {
+        return id;
     }
 
-    public User(Uri avatar, String username, String phone, String birth) {
-        this.avatar = avatar;
-        this.username = username;
-        this.phone = phone;
-        this.birth = birth;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Uri getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Uri avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhone() {
@@ -40,11 +39,19 @@ public class User {
         this.phone = phone;
     }
 
-    public String getBirth() {
-        return birth;
+    public String getAddress() {
+        return address;
     }
 
-    public void setBirth(String birth) {
-        this.birth = birth;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

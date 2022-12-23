@@ -93,7 +93,7 @@ public class StoreManageFragment extends Fragment {
         btnAddProduct = view.findViewById(R.id.btnAddProduct);
         rv = view.findViewById(R.id.rvManageStore);
 
-        ApiService.api.executeGetUserProducts(USER.getId()).enqueue(new Callback<List<Product>>() {
+        ApiService.api.executeGetUserStore(USER.getId()).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
