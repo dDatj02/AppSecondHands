@@ -44,9 +44,34 @@ const storeController = {
         res.status(200).send();
     }),
 
-    updateProduct: catchAsync(async (req, res) => {}),
+    deleteProduct: catchAsync(async (req, res) => {
+        const { userId } = req.params;
+        const { productId } = req.body;
 
-    deleteProduct: catchAsync(async (req, res) => {}),
+        await productService.delete({ _id: productId }).catch((err) => {
+            return res.status(400).send('Delete product fail');
+        });
+
+        await marketService
+            .delete({ product: productId, buyer: userId })
+            .catch((err) => {
+                return res.status(400).send('Delete product fail');
+            });
+
+        res.status(200).send();
+    }),
+
+    doneOrder: catchAsync(async (req, res) => {
+        const { userId } = req.params;
+        const { productId } = req.body;
+
+        await marketService
+            .update({ product: productId, seller: userId }, { status: 'sold' })
+            .catch((err) => {
+                return res.status(400).send('Update product fail');
+            });
+        res.status(200).send();
+    }),
 };
 
 module.exports = storeController;

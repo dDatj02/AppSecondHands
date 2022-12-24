@@ -11,14 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.app2hands.Adapter.AdminProductAdapter;
-import com.example.app2hands.Adapter.AdminProductCensorAdapter;
+import com.example.app2hands.Adapter.ProductAdapter;
+import com.example.app2hands.Api.ApiService;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,18 +85,22 @@ public class AdminCensorStoreFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvAdminCensorStore = view.findViewById(R.id.rvAdminCensorStore);
-        ArrayList<Product> products = (ArrayList<Product>) initData();
+        ApiService.api.executeGetPendingProducts().enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<Product> productList = (ArrayList<Product>) response.body();
+                    ProductAdapter adapter = new ProductAdapter(productList, getContext());
+                    GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+                    rvAdminCensorStore.setAdapter(adapter);
+                    rvAdminCensorStore.setLayoutManager(layoutManager);
+                }
+            }
 
-        AdminProductCensorAdapter adapter = new AdminProductCensorAdapter(products, getContext());
-
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
-
-        rvAdminCensorStore.setAdapter(adapter);
-        rvAdminCensorStore.setLayoutManager(layoutManager);
-    }
-
-    public List<Product> initData(){
-        List<Product> productList = new ArrayList<>();
-        return productList;
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(getContext(), "Can't get data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

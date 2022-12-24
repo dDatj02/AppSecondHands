@@ -79,40 +79,6 @@
             android:paddingBottom="20dp">
 
             <LinearLayout
-                android:id="@+id/notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center|left">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="30sp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_notifications"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:text="Thông báo"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_arrow_forward"
-                    />
-
-            </LinearLayout>
-
-            <View
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#ECE8E8"/>
-
-            <LinearLayout
                 android:id="@+id/changePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

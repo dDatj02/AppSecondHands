@@ -260,12 +260,31 @@
                 android:text="Mua hàng"/>
 
             <Button
-                android:id="@+id/delBtn"
+                android:id="@+id/censorBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/red"
                 android:visibility="gone"
-                android:text="Xoá"/>
+                android:text="Duyệt"/>
+
+            <LinearLayout
+                android:id="@+id/storeManager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/doneBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hoàn thành"
+                    android:layout_marginRight="10dp"/>
+
+                <Button
+                    android:id="@+id/delBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
+                    android:text="Xoá"/>
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -8,7 +8,8 @@ const upload = require('../utils/upload');
 // Path: /
 router.post('/:userId', upload.single('user'), userController.updateProfile);
 router.use('/:userId/products', storeRouter);
-router.use('/:userId/done-orders', orderController.getUserDoneOrders);
-router.use('/:userId/buying-orders', orderController.getUserBuyingOrders);
+router.get('/:userId/done-orders', orderController.getUserDoneOrders);
+router.get('/:userId/buying-orders', orderController.getUserBuyingOrders);
+router.post('/:userId/buy', orderController.buyProduct);
 
 module.exports = router;

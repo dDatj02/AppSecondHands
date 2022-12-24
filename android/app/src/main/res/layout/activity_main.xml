@@ -20,6 +20,6 @@
         android:background="@color/white"
         app:itemIconTint="@color/color_selector"
         app:itemTextColor="@color/color_selector"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

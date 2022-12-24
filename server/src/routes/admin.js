@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-// Path: /admin
-router.get('/', function(req, res) {
+const { adminController } = require('../controllers');
 
-});
+// Path: /admin
+router.get('/pending-products', adminController.getPendingProducts);
+
+router.post('/censor', adminController.censorProduct);
 
 module.exports = router;

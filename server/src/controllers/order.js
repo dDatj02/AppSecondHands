@@ -64,6 +64,18 @@ const orderController = {
         });
         res.status(200).json(result);
     }),
+
+    buyProduct: catchAsync(async (req, res) => {
+        const { userId } = req.params;
+        const { productId } = req.body;
+
+        await marketService
+            .update({ product: productId }, { buyer: userId, status: 'shipping' })
+            .catch((err) => {
+                return res.status(400).send('Buy product fail');
+            });
+        res.status(200).send();
+    }),
 };
 
 module.exports = orderController;

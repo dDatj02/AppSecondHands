@@ -23,22 +23,7 @@
             android:name=".UserInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".UserNotification"
-            android:exported="false" />
-        <activity
-            android:name=".NotificationDetail"
-            android:exported="false" />
-        <activity
             android:name=".AddProduct"
-            android:exported="false" />
-        <activity
-            android:name=".AddNoti"
-            android:exported="false" />
-        <activity
-            android:name=".AdminProductCensorDetail"
-            android:exported="false" />
-        <activity
-            android:name=".AdminProductDetail"
             android:exported="false" />
         <activity
             android:name=".AdminActivity"

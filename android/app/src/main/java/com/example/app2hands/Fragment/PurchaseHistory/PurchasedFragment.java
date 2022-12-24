@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -17,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.app2hands.Adapter.ProductAdapter;
-import com.example.app2hands.Adapter.PurchaseOrderAdapter;
 import com.example.app2hands.Api.ApiService;
 import com.example.app2hands.Model.Product;
 import com.example.app2hands.R;

@@ -14,12 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.app2hands.Adapter.PurchaseViewPagerAdapter;
-import com.example.app2hands.Model.Message;
 import com.example.app2hands.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

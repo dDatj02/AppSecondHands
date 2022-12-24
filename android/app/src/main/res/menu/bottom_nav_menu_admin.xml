@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/adminManageStore"
-        android:title="Quan ly mat hang"
-        android:icon="@drawable/ic_store"/>
 
     <item android:id="@+id/adminCensor"
         android:title="Xet duyet mat hang"
         android:icon="@drawable/ic_preview"/>
 
-    <item android:id="@+id/adminNotification"
-        android:title="Thong bao he thong"
-        android:icon="@drawable/ic_notifications"/>
+    <item android:id="@+id/personal"
+        android:title="Cá nhân"
+        android:icon="@drawable/ic_person"/>
 
 </menu>

@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Splash Screen"
-        android:textSize="30sp"/>
+        android:text="SECOND HAND MARKET"
+        android:gravity="center"
+        android:textSize="28sp"/>
 
 </LinearLayout>

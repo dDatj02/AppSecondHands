@@ -41,16 +41,37 @@ public interface ApiService {
     @GET("/selling-products")
     Call<List<Product>> executeGetSellingProducts();
 
-//    User's products
+//    Store
     @GET("/{userId}/products")
     Call<List<Product>> executeGetUserStore(@Path("userId") String userId);
 
+    @Multipart
+    @POST("/{userId}/products/create")
+    Call<Void> executeSellProduct(@Path("userId") String userId,
+                                  @Part("name")RequestBody name,
+                                  @Part("price")RequestBody price,
+                                  @Part("status")RequestBody status,
+                                  @Part("type")RequestBody type,
+                                  @Part("description")RequestBody description,
+                                  @Part MultipartBody.Part image);
+
+    @POST("/{userId}/products/delete")
+    Call<Void> executeDeleteProduct(@Path("userId") String userId, @Body HashMap<String, String> map);
+
+    @POST("/{userId}/products/done")
+    Call<Void> executeDoneOrder(@Path("userId") String userId, @Body HashMap<String, String> map);
+
+//    Order
     @GET("/{userId}/buying-orders")
     Call<List<Product>> executeGetUserBuyingOrders(@Path("userId") String userId);
 
     @GET("/{userId}/done-orders")
     Call<List<Product>> executeGetUserDoneOrders(@Path("userId") String userId);
 
+    @POST("/{userId}/buy")
+    Call<Void> executeBuyProduct(@Path("userId") String userId, @Body HashMap<String, String> map);
+
+//    User
     @Multipart
     @POST("/{userId}")
     Call<User> executeUpdateProfile(@Path("userId") String userId,
@@ -59,13 +80,10 @@ public interface ApiService {
                                     @Part("address")RequestBody address,
                                     @Part MultipartBody.Part avatar);
 
-    @Multipart
-    @POST("/{userId}/products/create")
-    Call<Void> executeSellProduct(@Path("userId") String userId,
-                                    @Part("name")RequestBody name,
-                                    @Part("price")RequestBody price,
-                                    @Part("status")RequestBody status,
-                                    @Part("type")RequestBody type,
-                                    @Part("description")RequestBody description,
-                                    @Part MultipartBody.Part image);
+//    Admin
+    @GET("/admin/pending-products")
+    Call<List<Product>> executeGetPendingProducts();
+
+    @POST("/admin/censor")
+    Call<Void> executeCensorProduct(@Body HashMap<String, String> map);
 }

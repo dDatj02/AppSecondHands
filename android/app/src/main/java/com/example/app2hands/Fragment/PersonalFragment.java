@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +24,6 @@ import com.example.app2hands.ChangePassword;
 import com.example.app2hands.Login;
 import com.example.app2hands.R;
 import com.example.app2hands.UserInfoActivity;
-import com.example.app2hands.UserNotification;
-import com.google.gson.Gson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +31,7 @@ import com.google.gson.Gson;
  * create an instance of this fragment.
  */
 public class PersonalFragment extends Fragment {
-    LinearLayout changePassword, infoApp, notification, logoutBtn;
+    LinearLayout changePassword, infoApp, logoutBtn;
     TextView tvName;
     CardView cvUser;
     ImageView ivAvt;
@@ -93,7 +90,6 @@ public class PersonalFragment extends Fragment {
         tvName = view.findViewById(R.id.tvName);
         changePassword = view.findViewById(R.id.changePassword);
         infoApp = view.findViewById(R.id.infoApp);
-        notification = view.findViewById(R.id.notification);
         logoutBtn = view.findViewById(R.id.logout);
         ivAvt = view.findViewById(R.id.ivAvatar);
         cvUser = view.findViewById(R.id.cvUser);
@@ -121,14 +117,6 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AppVersion.class);
-                startActivity(intent);
-            }
-        });
-
-        notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), UserNotification.class);
                 startActivity(intent);
             }
         });
