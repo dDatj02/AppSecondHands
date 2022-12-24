@@ -9,7 +9,7 @@ Bước 2:
     - Mở cmd và gõ "ipconfig"
     - Lấy địa chỉ ip gán vào biến IP trong android/app/src/main/java/com/example/app2hands/Api/ApiService.java
 
-Bước 3: Mở thư mục android bằng Android Studio và tiền hành chạy code
+Bước 3: Mở thư mục android bằng Android Studio và tiến hành chạy code
 
 * Lưu ý: trường hợp thực thi code android trên máy vật lí thì phải chắc chắn rằng cả 2 thiết bị kết nối cùng 1 nguồn internet
 
