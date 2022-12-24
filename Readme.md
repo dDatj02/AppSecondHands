@@ -2,6 +2,7 @@
 
 Bước 1:
     - Mở terminal tại thư mục server
+    - Gõ "npm install" để tải các tài nguyên cần thiết
     - Gõ "npm start" để khởi động server
 
 Bước 2: 
