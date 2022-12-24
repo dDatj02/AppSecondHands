@@ -19,7 +19,7 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiService {
-    final String IP = "192.168.62.159";
+    final String IP = "192.168.137.75";
     public static final String DOMAIN = "http://" + IP + ":3000";
 
     ApiService api = new Retrofit.Builder()

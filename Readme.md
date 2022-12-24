@@ -1,3 +1,6 @@
+### Down source code
+git clone https://github.com/dDatj02/AppSecondHands.git
+
 ### Các bước chạy source code
 
 Bước 1:
@@ -7,7 +10,7 @@ Bước 1:
 
 Bước 2: 
     - Mở cmd và gõ "ipconfig"
-    - Lấy địa chỉ ip gán vào biến IP trong android/app/src/main/java/com/example/app2hands/Api/ApiService.java
+    - Lấy địa chỉ ipv4 gán vào biến IP trong android/app/src/main/java/com/example/app2hands/Api/ApiService.java
 
 Bước 3: Mở thư mục android bằng Android Studio và tiến hành chạy code
 
@@ -17,7 +20,10 @@ Bước 3: Mở thư mục android bằng Android Studio và tiến hành chạy
 
 - user: 
     email: @gmail.com
-    password: 456
+    password: 123
+
+    email: 1@gmail.com
+    password: 123
 
 - admin: 
     email: admin@gmail.com
